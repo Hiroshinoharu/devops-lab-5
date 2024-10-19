@@ -1,14 +1,14 @@
-name: CI Workflow for C program # The name of my workflow
+name: CI Workflow for C program  # The name of your workflow
 
 # Run the action on specific events
 on:
-  push:		# Runs when a push is made to any branch
+  push:         # Runs when a push is made to any branch
   pull_request: # Runs when a pull request is created
 
-# Define the jobs (steps) that Github will run
+# Define the jobs (steps) that GitHub will run
 jobs:
   build:
-    runs-on: ubuntu-latest # The machine where the action runs (Ubuntu by default)
+    runs-on: ubuntu-latest  # The machine where the action runs (Ubuntu by default)
 
     steps:
     # Step 1: Checkout the repository code
@@ -23,13 +23,14 @@ jobs:
     - name: Build the code
       run: make
 
-    # Step 4:Run the program
+    # Step 4: Run the program
     - name: Run the program
       run: ./test
-	
-    # Step 5: Upload the bulid artifacts (Optional, to keep bulid outputs)
-    - name: Upload bulid artifact
-      uses: actions/upload-artifact@v3
+    
+    # Step 5: Upload the build artifacts
+    - name: Upload build artifact  # Corrected spelling of "build"
+      uses: actions/upload-artifact@v3  # Corrected from "action" to "actions"
       with:
-	name: compiled-binary
-	path: ./test # Path to the compiled binary
+        name: compiled-binary  # Name of the artifact
+        path: ./test  # Path to the compiled binary
+
