@@ -7,7 +7,7 @@ on:
 
 # Define the jobs (steps) that Github will run
 jobs:
-  bulid:
+  build:
     runs-on: ubuntu-latest # The machine where the action runs (Ubuntu by default)
 
     steps:
@@ -19,8 +19,8 @@ jobs:
     - name: Set up GCC
       run: sudo apt-get install gcc make
 
-    # Step 3: Bulid the code
-    - name: Bulid the code
+    # Step 3: Build the code
+    - name: Build the code
       run: make
 
     # Step 4:Run the program
