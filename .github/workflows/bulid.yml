@@ -1,0 +1,28 @@
+name: CI Workflow for C program # The name of my workflow
+
+# Run the action on specific events
+on:
+  push:		# Runs when a push is made to any branch
+  pull_request: # Runs when a pull request is created
+
+# Define the jobs (steps) that Github will run
+jobs:
+  bulid:
+    runs-on: ubuntu-latest # The machine where the action runs (Ubuntu by default)
+
+    steps:
+    # Step 1: Checkout the repository code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Step 2: Set up the build environment (this example uses GCC for C programming)
+    - name: Set up GCC
+      run: sudo apt-get install gcc make
+
+    # Step 3: Bulid the code
+    - name: Bulid the code
+      run: make
+
+    # Step 4:Run the program
+    - name: Run the program
+      run: ./test
