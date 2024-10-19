@@ -26,3 +26,10 @@ jobs:
     # Step 4:Run the program
     - name: Run the program
       run: ./test
+	
+    # Step 5: Upload the bulid artifacts (Optional, to keep bulid outputs)
+    - name: Upload bulid artifact
+      uses: action/upload-artifact@v3
+      with:
+	name: compiled-binary
+	path: ./test # Path to the compiled binary
